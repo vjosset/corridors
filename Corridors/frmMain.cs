@@ -524,6 +524,30 @@ namespace Corridors
 
         private void RefillModuleList(List<ModulePack> packs, string term)
         {
+            // Now put the packs and their modules into the treeview and list
+            SetStatus("Loading module previews...");
+            trvModulePacks.Nodes.Clear();
+
+            foreach (ModulePack pack in packs)
+            {
+                SetStatus("Loading module previews for pack \"" + pack.Name + "\"...");
+                TreeNode trnPack = new TreeNode();
+                trnPack.Text = pack.Name;
+                trnPack.Tag = pack;
+                this.trvModulePacks.Nodes.Add(trnPack);
+
+                foreach (string category in pack.Categories.Keys)
+                {
+                    TreeNode trnCategory = new TreeNode();
+                    trnCategory.Text = category;
+                    trnCategory.Tag = pack.Categories[category];
+                    trnPack.Nodes.Add(trnCategory);
+                }
+            }
+        }
+
+        private void RefillModuleList_Old(List<ModulePack> packs, string term)
+        {
             // Now put the packs and their modules into the list
             SetStatus("Loading module previews...");
             lsvModules.BeginUpdate();
@@ -609,7 +633,7 @@ namespace Corridors
             // The timer must be stopped! We want to act only once per keystroke.
             timer.Stop();
 
-            RefillModuleList(this.Preferences.ModulePacks, txtSearch.Text);
+            RefillModuleList(this.Preferences.ModulePacks, "");
         }
 
         private void btnModeDraw_Click(object sender, EventArgs e)
@@ -760,6 +784,110 @@ namespace Corridors
                 // Save this map as a big image
                 this.Canvas.ExportToImage(sfdImage.FileName);
             }
+        }
+
+        private void trvModulePacks_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            // Show the modules for the selected pack and category
+            TreeNode trnClicked = e.Node;
+
+            if (trnClicked.Tag is ModulePack)
+            {
+                // Clicked node represents a pack - Show all the modules in this pack
+                ModulePack pack = (ModulePack)trnClicked.Tag;
+
+                lsvModules.BeginUpdate();
+                lsvModules.Groups.Clear();
+                lsvModules.Items.Clear();
+
+                ImageList largeImages = new ImageList();
+                largeImages.ImageSize = new Size(48, 48);
+                largeImages.ColorDepth = ColorDepth.Depth32Bit;
+                ImageList smallImages = new ImageList();
+                smallImages.ImageSize = new Size(36, 36);
+                smallImages.ColorDepth = ColorDepth.Depth32Bit;
+                int imageIndex = 0;
+
+                foreach (string category in pack.Categories.Keys)
+                {
+                    Module[] modules = pack.Categories[category];
+
+                    ListViewGroup grp = new ListViewGroup(pack.Name + " - " + category);
+
+                    foreach (Module mod in modules)
+                    {
+                        // This module's name matches the search term - OK to show
+                        ListViewItem item = new ListViewItem(mod.Name + " (" + mod.Width + " x " + mod.Height + ")");
+                        item.Tag = mod;
+                        largeImages.Images.Add(mod.Name, mod.Thumbnail);
+                        smallImages.Images.Add(mod.Name, mod.Thumbnail);
+                        item.ImageKey = mod.Name;
+                        item.ImageIndex = imageIndex;
+                        item.Group = grp;
+
+                        // Add this item to the group
+                        lsvModules.Items.Add(item);
+
+                        imageIndex++;
+                    }
+
+                    // Add this group to the list
+                    lsvModules.Groups.Add(grp);
+                }
+
+                // Set the image list for the list of modules
+                lsvModules.LargeImageList = largeImages;
+                lsvModules.SmallImageList = smallImages;
+
+                // Done
+                lsvModules.EndUpdate();
+
+            }
+
+            if (trnClicked.Tag is Module[])
+            {
+                // Clicked node represents a module pack category (array of modules)
+                Module[] modules = (Module[])trnClicked.Tag;
+
+                lsvModules.BeginUpdate();
+                lsvModules.Groups.Clear();
+                lsvModules.Items.Clear();
+
+                ImageList largeImages = new ImageList();
+                largeImages.ImageSize = new Size(48, 48);
+                largeImages.ColorDepth = ColorDepth.Depth32Bit;
+                ImageList smallImages = new ImageList();
+                smallImages.ImageSize = new Size(36, 36);
+                smallImages.ColorDepth = ColorDepth.Depth32Bit;
+                int imageIndex = 0;
+
+                foreach (Module mod in modules)
+                {
+                    // This module's name matches the search term - OK to show
+                    ListViewItem item = new ListViewItem(mod.Name + " (" + mod.Width + " x " + mod.Height + ")");
+                    item.Tag = mod;
+                    largeImages.Images.Add(mod.Name, mod.Thumbnail);
+                    smallImages.Images.Add(mod.Name, mod.Thumbnail);
+                    item.ImageKey = mod.Name;
+                    item.ImageIndex = imageIndex;
+
+                    // Add this item to the group
+                    lsvModules.Items.Add(item);
+
+                    imageIndex++;
+                }
+
+                // Set the image list for the list of modules
+                lsvModules.LargeImageList = largeImages;
+                lsvModules.SmallImageList = smallImages;
+
+                // Done
+                lsvModules.EndUpdate();
+            }
+
+            this.Cursor = Cursors.Default;
         }
     }
 }

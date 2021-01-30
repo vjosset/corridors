@@ -1,0 +1,14 @@
+C:\Dev\Corridors\Corridors\bin\Debug\Corridors.exe
+C:\Dev\Corridors\Corridors\bin\Debug\Corridors.pdb
+C:\Dev\Corridors\Corridors\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Corridors\Corridors\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.frmMain.resources
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.frmPreferences.resources
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.Properties.Resources.resources
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.csproj.GenerateResource.cache
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.csproj.CoreCompileInputs.cache
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.csproj.CopyComplete
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.exe
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.pdb
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.csprojAssemblyReference.cache
+C:\Dev\Corridors\Corridors\obj\Debug\Corridors.frmLayer.resources

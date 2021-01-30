@@ -1,0 +1,270 @@
+{
+	"Name": "Space Crusade",
+	"Modules": [
+		// Rooms
+		{
+			"Name": "Room001",
+			"Images": [ "img\\Room001_5x5.png" ],
+			"Width": 5,
+			"Height": 5,
+			"Tiles": [
+				// Row 1
+				[
+					{ "Edges": "WNNW" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "DNNN" },
+					{ "Edges": "DNNN" },
+					{ "Edges": "WWNN" }
+				],
+				// Row 2
+				[
+					{ "Edges": "NNNW" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 3
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 4
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 5
+				[
+					{ "Edges": "NNWW" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NWWN" }
+				]
+			]
+		},
+		{
+			"Name": "Room002",
+			"Images": [ "img\\Room002_4x5.png" ],
+			"Width": 4,
+			"Height": 5,
+			"Tiles": [
+				// Row 1
+				[
+					{ "Edges": "WNNW" },
+					{ "Edges": "DNNN" },
+					{ "Edges": "DNNN" },
+					{ "Edges": "WWNN" }
+				],
+				// Row 2
+				[
+					{ "Edges": "NNNW" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 3
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NDNN" }
+				],
+				// Row 4
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NDNN" }
+				],
+				// Row 5
+				[
+					{ "Edges": "NNWW" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NWWN" }
+				]
+			]
+		},
+		{
+			"Name": "Room003",
+			"Images": [ "img\\Room003_5x4.png" ],
+			"Width": 5,
+			"Height": 4,
+			"Tiles": [
+				// Row 1
+				[
+					{ "Edges": "WNNW" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "WWNN" }
+				],
+				// Row 2
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 3
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 4
+				[
+					{ "Edges": "NNWW" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NWWN" }
+				],
+			]
+		},
+		{
+			"Name": "Room004",
+			"Images": [ "img\\Room004_4x3.png" ],
+			"Width": 4,
+			"Height": 3,
+			"Tiles": [
+				// Row 1
+				[
+					{ "Edges": "WNNW" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "WNNN" },
+					{ "Edges": "WWNN" }
+				],
+				// Row 2
+				[
+					{ "Edges": "NNND" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NNNN" },
+					{ "Edges": "NWNN" }
+				],
+				// Row 3
+				[
+					{ "Edges": "NNWD" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NNWN" },
+					{ "Edges": "NWWN" }
+				]
+			]
+		},
+		{
+			"Name": "Room005",
+			"Images": [ "img\\Room005_6x6.png" ],
+			"Width": 6,
+			"Height": 6,
+			"Tiles": null
+		},
+		{
+			"Name": "Room006",
+			"Images": [ "img\\Room006_6x6.png" ],
+			"Width": 6,
+			"Height": 6,
+			"Tiles": null
+		},
+		{
+			"Name": "Room007",
+			"Images": [ "img\\Room007_6x6.png" ],
+			"Width": 6,
+			"Height": 6,
+			"Tiles": null
+		},
+		{
+			"Name": "Room008",
+			"Images": [ "img\\Room008_6x6.png" ],
+			"Width": 6,
+			"Height": 6,
+			"Tiles": null
+		},
+		{
+			"Name": "Room010",
+			"Images": [ "img\\Room010_5x5.png" ],
+			"Width": 5,
+			"Height": 5,
+			"Tiles": null
+		},
+		{
+			"Name": "Room011",
+			"Images": [ "img\\Room011_5x5.png" ],
+			"Width": 5,
+			"Height": 5,
+			"Tiles": null
+		},
+		
+		// Tiles
+		// Tile 001
+		{
+			"Name": "Tile001",
+			"Images": [ "img\\Tile001a.png", "img\\Tile001b.png", "img\\Tile001c.png" ],
+			"Width": 1,
+			"Height": 1,
+			"Tiles": [
+				[
+					{ "Edges": "NNNN" }
+				]
+			]
+		},
+		// Tile 002
+		{
+			"Name": "Tile002",
+			"Images": [ "img\\Tile002a.png", "img\\Tile002b.png", "img\\Tile002c.png" ],
+			"Width": 1,
+			"Height": 1,
+			"Tiles": [
+				[
+					{ "Edges": "NNNN" }
+				]
+			]
+		},
+		// Tile 003
+		{
+			"Name": "Tile003",
+			"Images": [ "img\\Tile003a.png", "img\\Tile003b.png", "img\\Tile003c.png" ],
+			"Width": 1,
+			"Height": 1,
+			"Tiles": [
+				[
+					{ "Edges": "NNNN" }
+				]
+			]
+		},
+		// Tile 004
+		{
+			"Name": "Tile004",
+			"Images": [ "img\\Tile004a.png" ],
+			"Width": 1,
+			"Height": 1,
+			"Tiles": [
+				[
+					{ "Edges": "NNNN" }
+				]
+			]
+		},
+		// Tile 005
+		{
+			"Name": "Tile005",
+			"Images": [ "img\\Tile005a.png", "img\\Tile005b.png", "img\\Tile005c.png" ],
+			"Width": 1,
+			"Height": 1,
+			"Tiles": [
+				[
+					{ "Edges": "NNNN" }
+				]
+			]
+		}
+	]
+}

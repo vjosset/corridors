@@ -54,7 +54,6 @@ namespace Corridors
             this.mnuMainEditUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMainEditRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lsvModules = new System.Windows.Forms.ListView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -91,6 +90,8 @@ namespace Corridors
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
             this.sfdImage = new System.Windows.Forms.SaveFileDialog();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.trvModulePacks = new System.Windows.Forms.TreeView();
             this.Canvas = new Corridors.MapCanvas();
             this.miniMapCanvas1 = new Corridors.MiniMapCanvas();
             this.mnuMain.SuspendLayout();
@@ -113,6 +114,10 @@ namespace Corridors
             this.toolStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -122,7 +127,7 @@ namespace Corridors
             this.mnuMainEdit});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1399, 24);
+            this.mnuMain.Size = new System.Drawing.Size(1339, 24);
             this.mnuMain.TabIndex = 5;
             this.mnuMain.Text = "Main Menu";
             // 
@@ -326,39 +331,26 @@ namespace Corridors
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
-            this.splitContainer1.Panel1.Controls.Add(this.lsvModules);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer5);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1399, 643);
-            this.splitContainer1.SplitterDistance = 376;
+            this.splitContainer1.Size = new System.Drawing.Size(1339, 615);
+            this.splitContainer1.SplitterDistance = 208;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(0, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(376, 20);
-            this.txtSearch.TabIndex = 1;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lsvModules
             // 
-            this.lsvModules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvModules.BackColor = System.Drawing.SystemColors.Window;
+            this.lsvModules.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvModules.FullRowSelect = true;
             this.lsvModules.GridLines = true;
             this.lsvModules.HideSelection = false;
-            this.lsvModules.Location = new System.Drawing.Point(0, 29);
+            this.lsvModules.Location = new System.Drawing.Point(0, 0);
             this.lsvModules.MultiSelect = false;
             this.lsvModules.Name = "lsvModules";
-            this.lsvModules.Size = new System.Drawing.Size(376, 614);
+            this.lsvModules.Size = new System.Drawing.Size(208, 304);
             this.lsvModules.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lsvModules.TabIndex = 0;
             this.lsvModules.UseCompatibleStateImageBehavior = false;
@@ -380,8 +372,8 @@ namespace Corridors
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1019, 643);
-            this.splitContainer2.SplitterDistance = 800;
+            this.splitContainer2.Size = new System.Drawing.Size(1127, 615);
+            this.splitContainer2.SplitterDistance = 908;
             this.splitContainer2.TabIndex = 2;
             // 
             // splitContainer3
@@ -399,7 +391,7 @@ namespace Corridors
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(215, 643);
+            this.splitContainer3.Size = new System.Drawing.Size(215, 615);
             this.splitContainer3.SplitterDistance = 215;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -419,8 +411,8 @@ namespace Corridors
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.txtMapStats);
-            this.splitContainer4.Size = new System.Drawing.Size(215, 424);
-            this.splitContainer4.SplitterDistance = 264;
+            this.splitContainer4.Size = new System.Drawing.Size(215, 396);
+            this.splitContainer4.SplitterDistance = 246;
             this.splitContainer4.TabIndex = 10;
             // 
             // label1
@@ -445,7 +437,7 @@ namespace Corridors
             this.lsvLayers.Location = new System.Drawing.Point(0, 21);
             this.lsvLayers.MultiSelect = false;
             this.lsvLayers.Name = "lsvLayers";
-            this.lsvLayers.Size = new System.Drawing.Size(215, 218);
+            this.lsvLayers.Size = new System.Drawing.Size(215, 200);
             this.lsvLayers.TabIndex = 8;
             this.lsvLayers.UseCompatibleStateImageBehavior = false;
             this.lsvLayers.View = System.Windows.Forms.View.Details;
@@ -462,7 +454,7 @@ namespace Corridors
             this.btnLayerDown,
             this.btnLayerSettings,
             this.btnLayerToggleVisible});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 239);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 221);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(215, 25);
             this.toolStrip2.TabIndex = 9;
@@ -536,7 +528,7 @@ namespace Corridors
             this.txtMapStats.Name = "txtMapStats";
             this.txtMapStats.ReadOnly = true;
             this.txtMapStats.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMapStats.Size = new System.Drawing.Size(215, 156);
+            this.txtMapStats.Size = new System.Drawing.Size(215, 146);
             this.txtMapStats.TabIndex = 0;
             // 
             // statusStrip1
@@ -544,9 +536,9 @@ namespace Corridors
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prg,
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 698);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 670);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1399, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1339, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -584,7 +576,7 @@ namespace Corridors
             this.btnDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1399, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1339, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -734,6 +726,34 @@ namespace Corridors
             // 
             this.sfdImage.Filter = "PNG Files|*.png|All files|*.*";
             // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.trvModulePacks);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.lsvModules);
+            this.splitContainer5.Size = new System.Drawing.Size(208, 615);
+            this.splitContainer5.SplitterDistance = 307;
+            this.splitContainer5.TabIndex = 2;
+            // 
+            // trvModulePacks
+            // 
+            this.trvModulePacks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trvModulePacks.HideSelection = false;
+            this.trvModulePacks.Location = new System.Drawing.Point(0, 0);
+            this.trvModulePacks.Name = "trvModulePacks";
+            this.trvModulePacks.Size = new System.Drawing.Size(208, 307);
+            this.trvModulePacks.TabIndex = 2;
+            this.trvModulePacks.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvModulePacks_AfterSelect);
+            // 
             // Canvas
             // 
             this.Canvas.AutoScroll = true;
@@ -773,7 +793,7 @@ namespace Corridors
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1399, 720);
+            this.ClientSize = new System.Drawing.Size(1339, 692);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
@@ -786,7 +806,6 @@ namespace Corridors
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -810,6 +829,10 @@ namespace Corridors
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,7 +881,6 @@ namespace Corridors
         private ToolStripButton btnMirrorVertical;
         private ToolStripButton btnMirrorHorizontal;
         private ToolStripSeparator toolStripSeparator1;
-        private TextBox txtSearch;
         private ToolStripButton btnModeDraw;
         private ToolStripButton btnModeEraser;
         private ToolStripButton btnModeSelect;
@@ -879,6 +901,8 @@ namespace Corridors
         private Label label1;
         private ToolStripMenuItem mnuMainFileExportToImage;
         private SaveFileDialog sfdImage;
+        private SplitContainer splitContainer5;
+        private TreeView trvModulePacks;
     }
 }
 
