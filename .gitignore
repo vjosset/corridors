@@ -1,3 +1,5 @@
 **/.vs
 **/==Backups
 **/packages
+**/bin
+**/obj
