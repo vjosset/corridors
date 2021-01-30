@@ -54,8 +54,12 @@ namespace Corridors
             this.mnuMainEditUndo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMainEditRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.trvModulePacks = new System.Windows.Forms.TreeView();
             this.lsvModules = new System.Windows.Forms.ListView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.Canvas = new Corridors.MapCanvas();
+            this.miniMapCanvas1 = new Corridors.MiniMapCanvas();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,15 +94,16 @@ namespace Corridors
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
             this.sfdImage = new System.Windows.Forms.SaveFileDialog();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.trvModulePacks = new System.Windows.Forms.TreeView();
-            this.Canvas = new Corridors.MapCanvas();
-            this.miniMapCanvas1 = new Corridors.MiniMapCanvas();
+            this.mnuMainFileHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -114,10 +119,6 @@ namespace Corridors
             this.toolStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
-            this.splitContainer5.Panel1.SuspendLayout();
-            this.splitContainer5.Panel2.SuspendLayout();
-            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -141,6 +142,7 @@ namespace Corridors
             this.mnuMainFileExportToImage,
             this.toolStripMenuItem4,
             this.mnuMainFilePreferences,
+            this.mnuMainFileHelp,
             this.toolStripMenuItem1,
             this.mnuMainFileExit});
             this.mnuMainFile.Name = "mnuMainFile";
@@ -340,6 +342,34 @@ namespace Corridors
             this.splitContainer1.SplitterDistance = 208;
             this.splitContainer1.TabIndex = 2;
             // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.trvModulePacks);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.lsvModules);
+            this.splitContainer5.Size = new System.Drawing.Size(208, 615);
+            this.splitContainer5.SplitterDistance = 307;
+            this.splitContainer5.TabIndex = 2;
+            // 
+            // trvModulePacks
+            // 
+            this.trvModulePacks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trvModulePacks.HideSelection = false;
+            this.trvModulePacks.Location = new System.Drawing.Point(0, 0);
+            this.trvModulePacks.Name = "trvModulePacks";
+            this.trvModulePacks.Size = new System.Drawing.Size(208, 307);
+            this.trvModulePacks.TabIndex = 2;
+            this.trvModulePacks.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvModulePacks_AfterSelect);
+            // 
             // lsvModules
             // 
             this.lsvModules.BackColor = System.Drawing.SystemColors.Window;
@@ -375,6 +405,40 @@ namespace Corridors
             this.splitContainer2.Size = new System.Drawing.Size(1127, 615);
             this.splitContainer2.SplitterDistance = 908;
             this.splitContainer2.TabIndex = 2;
+            // 
+            // Canvas
+            // 
+            this.Canvas.AutoScroll = true;
+            this.Canvas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Canvas.CurrentMapLayerIndex = 0;
+            this.Canvas.CurrentMode = Corridors.MapCanvas.Mode.Select;
+            this.Canvas.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Canvas.GridBackgroundColor = System.Drawing.Color.LightGray;
+            this.Canvas.GridGutterSize = 1;
+            this.Canvas.GridMajorLineColor = System.Drawing.Color.DarkGray;
+            this.Canvas.GridMajorLineWidth = 3;
+            this.Canvas.GridMinorLineColor = System.Drawing.Color.DarkGray;
+            this.Canvas.GridMinorLineWidth = 1;
+            this.Canvas.GridRoomSize = 3;
+            this.Canvas.Location = new System.Drawing.Point(0, 0);
+            this.Canvas.Map = null;
+            this.Canvas.MiniMap = this.miniMapCanvas1;
+            this.Canvas.ModulesInHand = null;
+            this.Canvas.Name = "Canvas";
+            this.Canvas.Size = new System.Drawing.Size(3000, 3000);
+            this.Canvas.TabIndex = 1;
+            this.Canvas.Zoom = 30;
+            this.Canvas.UnsavedChanged += new System.EventHandler(this.Canvas_UnsavedChanged);
+            // 
+            // miniMapCanvas1
+            // 
+            this.miniMapCanvas1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.miniMapCanvas1.Location = new System.Drawing.Point(0, 0);
+            this.miniMapCanvas1.MapCanvas = this.Canvas;
+            this.miniMapCanvas1.Name = "miniMapCanvas1";
+            this.miniMapCanvas1.Size = new System.Drawing.Size(215, 215);
+            this.miniMapCanvas1.TabIndex = 0;
             // 
             // splitContainer3
             // 
@@ -412,7 +476,7 @@ namespace Corridors
             // 
             this.splitContainer4.Panel2.Controls.Add(this.txtMapStats);
             this.splitContainer4.Size = new System.Drawing.Size(215, 396);
-            this.splitContainer4.SplitterDistance = 246;
+            this.splitContainer4.SplitterDistance = 245;
             this.splitContainer4.TabIndex = 10;
             // 
             // label1
@@ -437,7 +501,7 @@ namespace Corridors
             this.lsvLayers.Location = new System.Drawing.Point(0, 21);
             this.lsvLayers.MultiSelect = false;
             this.lsvLayers.Name = "lsvLayers";
-            this.lsvLayers.Size = new System.Drawing.Size(215, 200);
+            this.lsvLayers.Size = new System.Drawing.Size(215, 199);
             this.lsvLayers.TabIndex = 8;
             this.lsvLayers.UseCompatibleStateImageBehavior = false;
             this.lsvLayers.View = System.Windows.Forms.View.Details;
@@ -454,7 +518,7 @@ namespace Corridors
             this.btnLayerDown,
             this.btnLayerSettings,
             this.btnLayerToggleVisible});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 221);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 220);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(215, 25);
             this.toolStrip2.TabIndex = 9;
@@ -528,7 +592,7 @@ namespace Corridors
             this.txtMapStats.Name = "txtMapStats";
             this.txtMapStats.ReadOnly = true;
             this.txtMapStats.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMapStats.Size = new System.Drawing.Size(215, 146);
+            this.txtMapStats.Size = new System.Drawing.Size(215, 147);
             this.txtMapStats.TabIndex = 0;
             // 
             // statusStrip1
@@ -726,67 +790,13 @@ namespace Corridors
             // 
             this.sfdImage.Filter = "PNG Files|*.png|All files|*.*";
             // 
-            // splitContainer5
+            // mnuMainFileHelp
             // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.trvModulePacks);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.lsvModules);
-            this.splitContainer5.Size = new System.Drawing.Size(208, 615);
-            this.splitContainer5.SplitterDistance = 307;
-            this.splitContainer5.TabIndex = 2;
-            // 
-            // trvModulePacks
-            // 
-            this.trvModulePacks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trvModulePacks.HideSelection = false;
-            this.trvModulePacks.Location = new System.Drawing.Point(0, 0);
-            this.trvModulePacks.Name = "trvModulePacks";
-            this.trvModulePacks.Size = new System.Drawing.Size(208, 307);
-            this.trvModulePacks.TabIndex = 2;
-            this.trvModulePacks.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvModulePacks_AfterSelect);
-            // 
-            // Canvas
-            // 
-            this.Canvas.AutoScroll = true;
-            this.Canvas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Canvas.CurrentMapLayerIndex = 0;
-            this.Canvas.CurrentMode = Corridors.MapCanvas.Mode.Select;
-            this.Canvas.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.GridBackgroundColor = System.Drawing.Color.LightGray;
-            this.Canvas.GridGutterSize = 1;
-            this.Canvas.GridMajorLineColor = System.Drawing.Color.DarkGray;
-            this.Canvas.GridMajorLineWidth = 3;
-            this.Canvas.GridMinorLineColor = System.Drawing.Color.DarkGray;
-            this.Canvas.GridMinorLineWidth = 1;
-            this.Canvas.GridRoomSize = 3;
-            this.Canvas.Location = new System.Drawing.Point(0, 0);
-            this.Canvas.Map = null;
-            this.Canvas.MiniMap = this.miniMapCanvas1;
-            this.Canvas.ModulesInHand = null;
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(3000, 3000);
-            this.Canvas.TabIndex = 1;
-            this.Canvas.Zoom = 30;
-            this.Canvas.UnsavedChanged += new System.EventHandler(this.Canvas_UnsavedChanged);
-            // 
-            // miniMapCanvas1
-            // 
-            this.miniMapCanvas1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.miniMapCanvas1.Location = new System.Drawing.Point(0, 0);
-            this.miniMapCanvas1.MapCanvas = this.Canvas;
-            this.miniMapCanvas1.Name = "miniMapCanvas1";
-            this.miniMapCanvas1.Size = new System.Drawing.Size(215, 215);
-            this.miniMapCanvas1.TabIndex = 0;
+            this.mnuMainFileHelp.Name = "mnuMainFileHelp";
+            this.mnuMainFileHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.mnuMainFileHelp.Size = new System.Drawing.Size(195, 22);
+            this.mnuMainFileHelp.Text = "Help";
+            this.mnuMainFileHelp.Click += new System.EventHandler(this.mnuMainFileHelp_Click);
             // 
             // frmMain
             // 
@@ -809,6 +819,10 @@ namespace Corridors
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -829,10 +843,6 @@ namespace Corridors
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.splitContainer5.Panel1.ResumeLayout(false);
-            this.splitContainer5.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
-            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -903,6 +913,7 @@ namespace Corridors
         private SaveFileDialog sfdImage;
         private SplitContainer splitContainer5;
         private TreeView trvModulePacks;
+        private ToolStripMenuItem mnuMainFileHelp;
     }
 }
 

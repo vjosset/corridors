@@ -889,5 +889,11 @@ namespace Corridors
 
             this.Cursor = Cursors.Default;
         }
+
+        private void mnuMainFileHelp_Click(object sender, EventArgs e)
+        {
+            frmHelp h = new frmHelp();
+            h.Show();
+        }
     }
 }
